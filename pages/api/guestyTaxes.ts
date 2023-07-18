@@ -31,7 +31,6 @@ export default async function handler(req, res) {
       method: 'GET',
       headers: {
         accept: 'application/json',
-        timeout: '20000',
         authorization: 'Bearer ' + token
       }
     };
@@ -40,7 +39,6 @@ export default async function handler(req, res) {
 
     fetch('https://open-api.guesty.com/v1/taxes/unit-type/' + propertyID +'/actual', options)
     .then(response => response.json())
-    .then(response => console.log(response))
     .then(response => res.status(200).json({ response }))
     .catch(err => console.error(err));
 
